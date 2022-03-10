@@ -5,34 +5,24 @@ public class Fluxo {
         System.out.println("Ini do main");
         try {
         	metodo1();
-        } catch (ArithmeticException | NullPointerException e) {
-        	String msg = e.getMessage();
+        } catch (ArithmeticException | NullPointerException | MinhaExcecao ex) {
+        	String msg = ex.getMessage();
         	System.out.println("Exception " + msg);
-        	e.printStackTrace();
-        } /*catch (NullPointerException e) {
-        	String msg = e.getMessage();
-        	System.out.println("NullPointerException " + msg);
-        	//e.printStackTrace();
-        }*/
+        	ex.printStackTrace();
+        }
         System.out.println("Fim do main");
     }
 
-    private static void metodo1() {
+    private static void metodo1() throws MinhaExcecao {
         System.out.println("Ini do metodo1");
         metodo2();
         System.out.println("Fim do metodo1");
     }
 
-    private static void metodo2() {
+    private static void metodo2() throws MinhaExcecao {
         System.out.println("Ini do metodo2");
         
-        //Conta c = new Conta();
-        //throw c;
-        
-        //ArithmeticException ex = new ArithmeticException("deu errado");
-        //throw ex;
-        
-        throw new ArithmeticException("deu errado");
+        throw new MinhaExcecao("deu muito errado");
         
         //System.out.println("Fim do metodo2");
     }
